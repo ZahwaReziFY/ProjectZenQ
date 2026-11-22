@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252E63"/><stop offset="1" stop-color="#3B4A93"/></linearGradient>
+    <linearGradient id="win" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101845"/><stop offset="1" stop-color="#26316E"/></linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- jendela -->
+  <rect x="470" y="50" width="220" height="170" rx="14" fill="#C9CFF2"/><rect x="482" y="62" width="196" height="146" rx="8" fill="url(#win)"/>
+  <path d="M580 62v146M482 135h196" stroke="#C9CFF2" stroke-width="8"/>
+  <circle cx="530" cy="100" r="22" fill="#F7E7B4"/><circle cx="541" cy="93" r="20" fill="#121A4A"/>
+  <g fill="#F7E7B4"><circle cx="630" cy="90" r="2.5"/><circle cx="650" cy="170" r="2"/><circle cx="520" cy="180" r="2"/></g>
+  <!-- tempat tidur -->
+  <rect x="70" y="250" width="420" height="110" rx="20" fill="#E8EBFA"/>
+  <rect x="60" y="190" width="30" height="210" rx="10" fill="#6B5BA6"/>
+  <rect x="100" y="222" width="120" height="50" rx="22" fill="#FFFFFF"/>
+  <path d="M190 262c40-30 120-30 300-12v90H190z" fill="#7C8DE0"/>
+  <path d="M190 262c40-30 120-30 300-12" stroke="#9AA8EA" stroke-width="10" fill="none"/>
+  <rect x="70" y="352" width="420" height="20" rx="8" fill="#5A4B91"/>
+  <!-- zzz -->
+  <g fill="#C9CFF2" font-family="Arial, sans-serif" font-weight="700"><text x="250" y="200" font-size="34">Z</text><text x="285" y="170" font-size="26">z</text><text x="310" y="148" font-size="20">z</text></g>
+  <!-- meja kecil + ponsel dilarang -->
+  <rect x="560" y="300" width="150" height="16" rx="6" fill="#8C79C9"/><rect x="575" y="316" width="120" height="80" rx="8" fill="#6B5BA6"/>
+  <rect x="610" y="230" width="46" height="74" rx="9" fill="#1A2152"/><rect x="616" y="238" width="34" height="54" rx="4" fill="#5DB0FF" opacity=".55"/>
+  <circle cx="633" cy="266" r="44" fill="none" stroke="#FF6B6B" stroke-width="9"/>
+  <path d="M602 235l62 62" stroke="#FF6B6B" stroke-width="9" stroke-linecap="round"/>
+</svg>

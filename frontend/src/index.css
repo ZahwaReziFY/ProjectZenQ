@@ -1,0 +1,11 @@
+/*
+ * Urutan: Tailwind (tanpa preflight, lihat tailwind.config.js) -> CSS mockup -> tambahan app.
+ * Komponen pake class dari mockup (.card, .btn, .chip, .grid g3, dll) biar tampilan
+ * persis sama dengan desain. Utility Tailwind tetap boleh dipake buat layout kecil.
+ */
+@import 'leaflet/dist/leaflet.css';
+@import './styles/mockup.css';
+@import './styles/app.css';
+
+@tailwind components;
+@tailwind utilities;

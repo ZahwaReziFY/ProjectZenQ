@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF3E2"/><stop offset="1" stop-color="#F7DDBB"/></linearGradient>
+    <clipPath id="plate"><circle cx="360" cy="225" r="150"/></clipPath>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="120" y="40" width="480" height="370" rx="40" fill="#E9C99B" opacity=".45"/>
+  <!-- piring -->
+  <circle cx="360" cy="225" r="178" fill="#FFFFFF"/><circle cx="360" cy="225" r="178" fill="none" stroke="#EADCC8" stroke-width="4"/>
+  <g clip-path="url(#plate)">
+    <!-- setengah kiri: sayur (lebih banyak) + buah -->
+    <path d="M360 225V75A150 150 0 0 0 220 280z" fill="#5FAE77"/>
+    <path d="M360 225L220 280A150 150 0 0 0 360 375z" fill="#F29F3D"/>
+    <!-- setengah kanan: makanan pokok + lauk -->
+    <path d="M360 225V75A150 150 0 0 1 495 290z" fill="#F7F1E3"/>
+    <path d="M360 225L495 290A150 150 0 0 1 360 375z" fill="#B9773D"/>
+  </g>
+  <circle cx="360" cy="225" r="150" fill="none" stroke="#FFFFFF" stroke-width="6"/>
+  <path d="M360 75v300M360 225L220 280M360 225L495 290" stroke="#FFFFFF" stroke-width="6"/>
+  <!-- detail sayur -->
+  <g fill="#3F9161"><ellipse cx="290" cy="150" rx="22" ry="12" transform="rotate(-30 290 150)"/><ellipse cx="320" cy="190" rx="20" ry="11" transform="rotate(20 320 190)"/><ellipse cx="260" cy="210" rx="20" ry="11" transform="rotate(-10 260 210)"/><ellipse cx="320" cy="120" rx="16" ry="9" transform="rotate(40 320 120)"/></g>
+  <!-- detail buah (jeruk) -->
+  <g transform="translate(300 300)"><circle r="26" fill="#FFC56B"/><path d="M0 0L0 -26M0 0L22 -13M0 0L22 13M0 0L0 26M0 0L-22 13M0 0L-22 -13" stroke="#F29F3D" stroke-width="3"/></g>
+  <!-- nasi -->
+  <g fill="#FFFFFF" stroke="#E7DCC4" stroke-width="2"><ellipse cx="410" cy="150" rx="7" ry="4"/><ellipse cx="430" cy="170" rx="7" ry="4"/><ellipse cx="400" cy="185" rx="7" ry="4"/><ellipse cx="440" cy="200" rx="7" ry="4"/><ellipse cx="420" cy="215" rx="7" ry="4"/><ellipse cx="455" cy="225" rx="7" ry="4"/></g>
+  <!-- lauk (tempe + ikan) -->
+  <rect x="385" y="270" width="54" height="36" rx="6" fill="#D9A15E"/><g fill="#B9773D"><circle cx="398" cy="282" r="3"/><circle cx="414" cy="292" r="3"/><circle cx="426" cy="280" r="3"/></g>
+  <path d="M410 330c20-18 50-18 64 0-14 18-44 18-64 0zM474 330l14-12v24z" fill="#8C5A2E"/>
+  <!-- gelas air -->
+  <path d="M600 160h86l-10 190h-66z" fill="#FFFFFF" opacity=".85"/><path d="M606 200h74l-8 146h-58z" fill="#8FD3FF"/>
+  <!-- sendok garpu -->
+  <rect x="146" y="120" width="12" height="210" rx="6" fill="#B7C1CC"/><ellipse cx="152" cy="118" rx="18" ry="28" fill="#B7C1CC"/>
+</svg>

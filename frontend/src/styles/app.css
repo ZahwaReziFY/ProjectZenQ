@@ -1,0 +1,245 @@
+/* Tambahan di luar mockup: state kosong/loading, peta Leaflet, tombol chatbot, admin. */
+
+a { color: inherit; text-decoration: none; }
+h3 { font-size: 17px; }
+.link { color: var(--brand-d); font-weight: 600; cursor: pointer; background: none; border: 0; padding: 0; font-size: inherit; }
+
+.center-msg { text-align: center; padding: 50px 20px; }
+.center-msg .em { font-size: 50px; display: flex; justify-content: center; margin-bottom: 10px; color: var(--muted); }
+
+.map-leaflet { height: 440px; width: 100%; }
+.map .leaflet-container { font-family: inherit; }
+.pin-user { width: 18px; height: 18px; border-radius: 50%; background: var(--brand-d); border: 3px solid #fff; box-shadow: 0 0 0 10px rgba(31, 99, 196, .18); }
+.pin-hosp { width: 30px; height: 30px; border-radius: 50%; background: var(--red); color: #fff; border: 3px solid #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 16px; box-shadow: 0 2px 6px rgba(0, 0, 0, .25); }
+.listbtn.on { border-color: var(--brand-d); background: var(--surface); }
+
+.fab { position: fixed; right: 20px; bottom: calc(20px + env(safe-area-inset-bottom, 0px)); z-index: 30; background: var(--brand-dd); color: #fff; border: 1px solid rgba(255, 255, 255, .12); border-radius: 999px; padding: 12px 20px; font-weight: 700; box-shadow: var(--shadow-lg); display: flex; align-items: center; gap: 8px; }
+.fab svg { color: #E2C38C; }
+
+.news { display: flex; flex-direction: column; }
+.news { padding: 14px; transition: border-color .15s, box-shadow .15s; }
+.news:hover { border-color: #C9DDEF; box-shadow: var(--shadow); }
+.news .thumb { height: 170px; border-radius: 14px; background: var(--soft) center/cover no-repeat; margin-bottom: 14px; }
+.clamp3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.45; }
+
+.bpom { margin-top: 10px; padding: 12px 14px; border-radius: 14px; background: var(--soft); font-size: 13px; }
+
+.nav .who { display: flex; align-items: center; gap: 8px; cursor: pointer; background: none; border: 0; color: var(--text); font-weight: 600; white-space: nowrap; }
+.nav .badge { background: var(--red); color: #fff; border-radius: 999px; font-size: 11px; padding: 1px 7px; margin-left: 4px; }
+
+/* Ikon avatar = gabungan Profil + Notifikasi (components/Navbar.jsx) */
+.pmenu { position: relative; }
+.pmenu-btn { position: relative; background: none; border: 2px solid transparent; border-radius: 999px; padding: 2px; cursor: pointer; display: flex; }
+.pmenu-btn.on, .pmenu-btn:hover { border-color: var(--brand); }
+.pmenu-dot { position: absolute; top: -4px; right: -6px; background: var(--red); color: #fff; border: 2px solid var(--surface); border-radius: 999px; font-size: 10px; font-weight: 700; min-width: 20px; height: 20px; padding: 0 5px; display: flex; align-items: center; justify-content: center; }
+.pmenu-drop { position: absolute; right: 0; top: calc(100% + 10px); width: 240px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 12px 32px rgba(15, 40, 80, .14); padding: 8px; z-index: 30; }
+.pmenu-head { display: flex; flex-direction: column; padding: 10px 12px 12px; border-bottom: 1px solid var(--border); margin-bottom: 6px; overflow: hidden; }
+.pmenu-head span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.pmenu-drop > button { display: flex; align-items: center; gap: 10px; width: 100%; background: none; border: 0; border-radius: 10px; padding: 10px 12px; font-size: 14px; color: var(--text); text-align: left; cursor: pointer; }
+.pmenu-drop > button:hover { background: var(--soft); }
+.pmenu-drop > button .badge { margin-left: auto; }
+.pmenu-drop > button.danger { color: var(--red); }
+
+.table { width: 100%; border-collapse: collapse; }
+.table th, .table td { text-align: left; padding: 12px 10px; border-bottom: 1px solid var(--border); font-size: 14px; }
+.table th { color: var(--muted); font-weight: 600; }
+
+.disclaimer { font-size: 12px; color: var(--muted); }
+
+@media (max-width: 900px) {
+  .nav-in { flex-wrap: wrap; }
+  .links { order: 3; flex-basis: 100%; }
+  .map-leaflet { height: 320px; }
+  .hist { flex-wrap: wrap; }
+}
+
+/* ---------- Banner iklan Beranda (components/AdBanner.jsx) ----------
+ * Warna latar diambil dari foto banner: biru langit atas + biru muda bawah (garis di 64%),
+ * jadi fotonya nyatu dengan latar. */
+.adbanner { position: relative; display: grid; grid-template-columns: 1.05fr 1fr; min-height: 340px; border-radius: 28px; overflow: hidden; margin-bottom: 24px;
+  background: linear-gradient(180deg, #93D3FF 0 64%, #B6E2FF 64% 100%); box-shadow: var(--shadow-lg); }
+.adbanner::before { content: ""; position: absolute; width: 420px; height: 420px; border-radius: 50%; right: 8%; top: -12%; background: radial-gradient(circle, #6FC2FA 0 60%, transparent 61%); opacity: .55; }
+.ad-copy { position: relative; z-index: 2; padding: 46px 0 64px 48px; display: flex; flex-direction: column; justify-content: center; animation: adIn .45s ease both; }
+.ad-copy h1 { font-size: 40px; line-height: 1.12; letter-spacing: -.03em; color: var(--brand-dd); margin-bottom: 12px; max-width: 470px; font-weight: 800; }
+.ad-copy p { color: #1C4A70; font-size: 16px; margin: 0 0 22px; max-width: 440px; }
+.ad-ghost { background: rgba(255, 255, 255, .7); color: var(--brand-dd); box-shadow: none; }
+.ad-ghost:hover { background: #fff; }
+.ad-visual { position: relative; z-index: 1; display: flex; align-items: flex-end; justify-content: flex-end; }
+.ad-visual img { display: block; height: 100%; max-height: 380px; width: auto; max-width: 100%; object-fit: cover; object-position: left bottom;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 12%); mask-image: linear-gradient(90deg, transparent 0, #000 12%); }
+.ad-orb { position: relative; align-self: center; margin: 0 auto; width: 210px; height: 210px; border-radius: 50%; background: linear-gradient(150deg, var(--brand-d), var(--brand-dd)); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 20px 50px rgba(7, 47, 82, .35); }
+.ad-orb-sub { position: absolute; right: -6px; bottom: 18px; width: 64px; height: 64px; border-radius: 50%; background: #fff; color: var(--gold); display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+.ad-dots { position: absolute; z-index: 3; left: 48px; bottom: 24px; display: flex; gap: 6px; }
+.ad-dots button { width: 10px; height: 6px; border-radius: 999px; border: 0; padding: 0; background: rgba(255, 255, 255, .75); transition: width .25s, background .25s; }
+.ad-dots button.on { width: 34px; background: #fff; }
+@keyframes adIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+/* ---------- Edukasi (berita) ---------- */
+.newsfeat { display: grid; grid-template-columns: 1.15fr 1fr; background: var(--surface); border: 1px solid var(--border); border-radius: 24px; overflow: hidden; margin-bottom: 22px; color: var(--text); }
+.newsfeat:hover { box-shadow: var(--shadow); }
+.newsfeat .pic { min-height: 300px; background: var(--soft) center/cover no-repeat; }
+.newsfeat .txt { padding: 30px 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.newsfeat .meta { width: 100%; }
+.newsfeat h2 { font-size: 24px; line-height: 1.25; }
+.newsfeat p { margin: 0; display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.newsfeat .meta { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 13px; color: var(--muted); }
+.newsfeat .go { color: var(--brand-d); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+
+/* Grid layanan Beranda: 5 kolom di desktop, 2 kolom di HP */
+.services { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
+@media (max-width: 900px) { .services { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
+
+/* ---------- Panggilan (video call & telepon) ---------- */
+.stage video.remote { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; background: #04192d; opacity: 0; }
+.stage.live video.remote { opacity: 1; }
+.stage .self { overflow: hidden; z-index: 2; }
+.stage .self video { width: 100%; height: 100%; object-fit: cover; transform: scaleX(-1); }
+.stage .timer, .stage .ctrl { z-index: 3; }
+.ctrl button.off { background: #E7ECF1; color: var(--muted); }
+.m.sys { align-self: center; max-width: 90%; background: transparent; color: var(--muted); font-size: 12px; padding: 4px 12px; border: 1px dashed var(--border); border-radius: 999px; }
+.incoming { position: fixed; inset: 0; z-index: 60; background: rgba(7, 47, 82, .45); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; padding: 20px; }
+.incoming-card { position: relative; background: var(--surface); border-radius: 26px; padding: 34px 30px 26px; width: 100%; max-width: 360px; display: flex; flex-direction: column; align-items: center; gap: 8px; text-align: center; box-shadow: var(--shadow-lg); }
+.incoming-ic { position: absolute; top: -26px; width: 52px; height: 52px; border-radius: 50%; background: var(--green); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 0 rgba(21, 135, 90, .5); animation: ringPulse 1.4s infinite; }
+@keyframes ringPulse { 0% { box-shadow: 0 0 0 0 rgba(21, 135, 90, .55); } 100% { box-shadow: 0 0 0 22px rgba(21, 135, 90, 0); } }
+
+/* ---------- Artikel edukasi ---------- */
+.acover { background: var(--soft) center/cover no-repeat; border-radius: 14px; }
+.acover.auto { display: flex; align-items: center; justify-content: center; color: rgba(255, 255, 255, .92); }
+.news .acover.thumb { height: 170px; margin-bottom: 14px; }
+.newsfeat .acover.pic { border-radius: 0; min-height: 300px; }
+.article { max-width: 760px; margin: 0 auto; }
+.article h1 { font-size: 36px; line-height: 1.15; letter-spacing: -.03em; margin: 14px 0 12px; }
+.article .lead { font-size: 18px; color: var(--muted); margin: 0 0 12px; }
+.article .hero-cover { height: 320px; border-radius: 22px; margin: 22px 0 28px; }
+.abody { font-size: 16.5px; line-height: 1.75; }
+.abody p { margin: 0 0 16px; }
+.abody h2 { font-size: 21px; margin: 28px 0 10px; }
+.abody ul { margin: 0 0 16px; padding-left: 22px; }
+.abody li { margin-bottom: 6px; }
+.abody li::marker { color: var(--gold); }
+.article-cta { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 30px; padding: 20px 22px; border-radius: 18px; background: var(--soft); }
+
+/* Admin: daftar & editor artikel */
+.arow { display: flex; align-items: center; gap: 16px; padding: 14px 16px; }
+.arow.hidden { opacity: .6; }
+.arow .acover.arow-cover { width: 76px; height: 56px; border-radius: 12px; flex-shrink: 0; }
+.iconb.danger { color: var(--red); }
+.iconb[disabled] { opacity: .4; cursor: default; }
+.editor .acover.editor-cover { height: 190px; margin-top: 6px; }
+
+/* Foto profil */
+.avatar-edit { position: relative; width: 120px; margin: 0 auto; }
+.avatar-cam { position: absolute; right: 0; bottom: 4px; width: 38px; height: 38px; border-radius: 50%; border: 3px solid var(--surface); background: var(--brand-d); color: #fff; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow); }
+.avatar-cam:hover { background: var(--brand-dd); }
+
+/* Dokter: tombol ubah status kunjungan */
+.visit-action { margin-top: 6px; padding: 16px; border-radius: 16px; background: var(--soft); }
+
+/* Admin dokter: form sedang mode ubah + baris yang sedang diubah */
+.card.editing { border-color: var(--gold); box-shadow: 0 0 0 3px var(--gold-soft); }
+.table tr.row-on td { background: var(--gold-soft); }
+
+/* Dashboard dokter: status online/offline + tombol geser */
+.status-card { display: flex; align-items: center; gap: 14px; padding: 12px 16px; border-radius: 16px; border: 1px solid var(--border); background: var(--surface); min-width: 280px; }
+.status-card.on { border-color: #BFE5D2; background: #F1FAF5; }
+.status-dot { width: 12px; height: 12px; border-radius: 50%; background: #A9B4C0; flex-shrink: 0; }
+.status-card.on .status-dot { background: var(--green); box-shadow: 0 0 0 4px rgba(21, 135, 90, .18); }
+.status-card > div { flex: 1; }
+.switch { position: relative; width: 52px; height: 30px; border-radius: 999px; border: 0; padding: 0; background: #C7D0DA; flex-shrink: 0; transition: background .2s; }
+.switch span { position: absolute; top: 3px; left: 3px; width: 24px; height: 24px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0, 0, 0, .2); transition: transform .2s; }
+.switch.on { background: var(--green); }
+.switch.on span { transform: translateX(22px); }
+.switch[disabled] { opacity: .6; cursor: wait; }
+.btn[disabled] { box-shadow: none; }
+
+/* Ganti bahasa: tombol ID | EN */
+.langswitch { display: inline-flex; padding: 3px; border-radius: 999px; background: var(--soft); border: 1px solid var(--border); flex-shrink: 0; }
+.langswitch button { border: 0; background: none; color: var(--muted); font-weight: 700; font-size: 12px; padding: 5px 10px; border-radius: 999px; }
+.langswitch button.on { background: var(--surface); color: var(--brand-d); box-shadow: 0 1px 3px rgba(15, 34, 54, .12); }
+.langswitch.corner { position: absolute; top: 20px; right: 20px; }
+.subpanel { margin: -4px 0 12px; padding: 14px; border-radius: 14px; background: var(--soft); }
+.langopt { display: flex; align-items: center; gap: 12px; width: 100%; border: 1px solid var(--border); background: var(--surface); border-radius: 12px; padding: 11px 14px; margin-bottom: 8px; font-weight: 600; color: var(--text); text-align: left; }
+.langopt:last-child { margin-bottom: 0; }
+.langopt.on { border-color: var(--brand-d); color: var(--brand-d); }
+.langcode { width: 34px; height: 26px; border-radius: 8px; background: var(--soft); color: var(--brand-d); font-size: 12px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
+
+/* Pusat Bantuan */
+.help-search { display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 4px 16px; color: var(--muted); max-width: 640px; }
+.help-search input { border: 0; padding: 12px 0; box-shadow: none !important; background: transparent; }
+.help-topic { margin-bottom: 22px; }
+.help-topic h2 { display: flex; align-items: center; gap: 10px; font-size: 18px; margin-bottom: 10px; }
+.help-topic h2 .lic { width: 34px; height: 34px; border-radius: 10px; background: var(--soft); color: var(--brand-d); display: flex; align-items: center; justify-content: center; }
+.faq { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 8px; overflow: hidden; }
+.faq > button { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 12px; background: none; border: 0; padding: 14px 16px; text-align: left; font-weight: 600; font-size: 15px; color: var(--text); }
+.faq > button svg { transition: transform .2s; color: var(--muted); }
+.faq.open > button svg { transform: rotate(180deg); }
+.faq.open { border-color: #C9DDEF; }
+.faq p { margin: 0; padding: 0 16px 16px; color: var(--muted); line-height: 1.65; }
+.help-contact h3 { margin-bottom: 6px; }
+.help-sos { display: flex; gap: 12px; border-color: #F2C9C9; background: #FFF7F7; }
+.help-sos .lic { width: 40px; height: 40px; border-radius: 12px; background: #FCE7E7; color: var(--red); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+
+/* Pembayaran QR + halaman ZenQ Pay */
+.popt .pay-ic { width: 44px; height: 44px; border-radius: 12px; background: var(--soft); color: var(--brand-d); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.payqr { width: 260px; height: 260px; background: #fff; border-radius: 16px; padding: 12px; border: 1px solid var(--border); }
+.paypage { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px 16px; background: radial-gradient(circle at 20% 0%, rgba(62, 159, 224, .25), transparent 50%), var(--bg); }
+.paycard { width: 100%; max-width: 420px; background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 24px; box-shadow: var(--shadow-lg); display: flex; flex-direction: column; gap: 6px; }
+.payhead { display: flex; align-items: center; gap: 10px; font-size: 18px; color: var(--brand-d); margin-bottom: 12px; }
+.paylines { margin: 14px 0 8px; padding: 12px 14px; border-radius: 14px; background: var(--soft); }
+.payok { text-align: center; color: var(--green); padding: 10px 0; }
+.payok h2 { color: var(--text); margin: 10px 0 6px; }
+.paytotal { font-size: 28px; font-weight: 800; color: var(--text); margin-top: 8px; }
+.payfoot { display: flex; align-items: center; justify-content: center; gap: 6px; margin: 12px 0 0; }
+
+/* ---------- Kecil-kecil ---------- */
+.listbtn .lic { width: 36px; height: 36px; border-radius: 11px; background: var(--soft); color: var(--brand-d); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.skel { background: linear-gradient(90deg, var(--soft), #F4F8FC, var(--soft)); background-size: 200% 100%; animation: skel 1.2s infinite linear; border: 0; }
+@keyframes skel { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 900px) {
+  .stage .self { width: 96px; height: 128px; bottom: 96px; left: 12px; }
+  .langswitch.corner { top: 12px; right: 12px; }
+  .adbanner { grid-template-columns: 1fr; min-height: 0; background: linear-gradient(180deg, #93D3FF 0 70%, #B6E2FF 70% 100%); }
+  .adbanner::before { width: 300px; height: 300px; right: -20%; top: auto; bottom: -10%; }
+  .ad-copy { padding: 28px 24px 8px; }
+  .ad-copy h1 { font-size: 28px; }
+  .ad-copy p { font-size: 15px; margin-bottom: 16px; }
+  .ad-visual { justify-content: center; min-height: 220px; padding-bottom: 0; }
+  .ad-visual img { max-height: 250px; -webkit-mask-image: none; mask-image: none; }
+  .ad-orb { width: 150px; height: 150px; margin: 16px auto 44px; }
+  .ad-orb svg:first-child { width: 64px; height: 64px; }
+  .ad-dots { left: 24px; bottom: 16px; }
+  .newsfeat { grid-template-columns: 1fr; }
+  .newsfeat .acover.pic { min-height: 200px; }
+  .article h1 { font-size: 27px; }
+  .article .hero-cover { height: 200px; }
+  .arow { flex-wrap: wrap; }
+  .arow > div:nth-child(2) { flex: 1 1 180px; min-width: 0; }
+  .arow > div:last-child { width: 100%; justify-content: flex-end; }
+  .newsfeat .pic { min-height: 200px; }
+  .newsfeat .txt { padding: 22px; }
+  .newsfeat h2 { font-size: 20px; }
+}
+
+@media (max-width: 560px) { .nav .langswitch { display: none; } }
+
+/* Kolom kata sandi + tombol mata */
+.pwfield { position: relative; }
+.pwfield input { padding-right: 46px; }
+.pwfield .pweye { position: absolute; top: 50%; right: 6px; transform: translateY(-50%); width: 36px; height: 36px; border: 0; border-radius: 10px; background: none; color: var(--muted); display: flex; align-items: center; justify-content: center; cursor: pointer; }
+.pwfield .pweye:hover { color: var(--brand-d); background: var(--soft); }
+.pwfield .pweye:focus-visible { outline: 2px solid var(--brand); outline-offset: 1px; }
+.pwfield input::-ms-reveal { display: none; }
+
+/* Badge verifikasi BPOM & halal (hasil scan obat) */
+.verify { margin: 4px 0 16px; padding: 14px; border-radius: 14px; background: var(--soft); display: flex; flex-direction: column; gap: 8px; }
+.verify-row { display: flex; flex-wrap: wrap; gap: 8px; }
+.vbadge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 12px; border-radius: 999px; font-size: 13px; font-weight: 700; background: var(--surface); color: var(--muted); border: 1px solid var(--border); }
+.vbadge.ok { background: #E8F6EE; color: #17794A; border-color: #BFE6CF; }
+.vbadge.ok.halal { background: #F1ECF8; color: #5B3A8C; border-color: #D9CCEB; }
+.verify-meta { display: flex; flex-direction: column; gap: 2px; }
+.verify-meta b { color: var(--text); font-weight: 600; word-break: break-all; }
+.verify-links { display: flex; flex-wrap: wrap; gap: 14px; }
+.verify-links a { display: inline-flex; align-items: center; gap: 4px; color: var(--brand-d); font-weight: 600; }

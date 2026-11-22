@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14274A"/><stop offset="1" stop-color="#2C4373"/></linearGradient>
+    <linearGradient id="honey" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6C453"/><stop offset="1" stop-color="#D9891F"/></linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".55"/><stop offset="1" stop-color="#FFFFFF" stop-opacity=".2"/></linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#sky)"/>
+  <circle cx="640" cy="95" r="46" fill="#F7E7B4"/><circle cx="662" cy="80" r="44" fill="#22385F"/>
+  <g fill="#F7E7B4"><circle cx="120" cy="70" r="2.5"/><circle cx="220" cy="120" r="2"/><circle cx="330" cy="60" r="3"/><circle cx="470" cy="110" r="2"/><circle cx="540" cy="45" r="2.5"/><circle cx="740" cy="170" r="2"/><circle cx="70" cy="170" r="2"/></g>
+  <rect x="0" y="330" width="800" height="120" fill="#7A4E2D"/><rect x="0" y="330" width="800" height="14" fill="#8F5E37"/>
+  <!-- toples madu -->
+  <rect x="250" y="190" width="150" height="150" rx="34" fill="url(#honey)"/>
+  <rect x="250" y="190" width="150" height="150" rx="34" fill="url(#glass)" opacity=".35"/>
+  <rect x="262" y="166" width="126" height="34" rx="12" fill="#C9772A"/>
+  <rect x="240" y="152" width="170" height="26" rx="10" fill="#E8A548"/>
+  <rect x="286" y="240" width="78" height="56" rx="12" fill="#FFF4D6"/>
+  <path d="M325 255l10 6v12l-10 6-10-6v-12z" fill="none" stroke="#D9891F" stroke-width="4"/>
+  <path d="M268 215c0 30 0 70 12 100" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="8" stroke-linecap="round" fill="none"/>
+  <!-- dipper -->
+  <rect x="372" y="98" width="12" height="110" rx="6" transform="rotate(22 378 150)" fill="#B8742E"/>
+  <g transform="rotate(22 378 150)"><rect x="362" y="196" width="32" height="12" rx="6" fill="#A86426"/><rect x="362" y="212" width="32" height="12" rx="6" fill="#A86426"/><rect x="364" y="228" width="28" height="12" rx="6" fill="#A86426"/></g>
+  <!-- mug -->
+  <rect x="470" y="240" width="110" height="100" rx="18" fill="#F3EEE6"/>
+  <path d="M580 262c40 0 40 56 0 56" stroke="#F3EEE6" stroke-width="14" fill="none"/>
+  <rect x="470" y="240" width="110" height="20" rx="10" fill="#E2B05A"/>
+  <g stroke="#F3EEE6" stroke-width="6" stroke-linecap="round" fill="none" opacity=".75">
+    <path d="M500 220c-12-16 12-24 0-42"/><path d="M528 220c-12-16 12-24 0-42"/><path d="M556 220c-12-16 12-24 0-42"/>
+  </g>
+  <ellipse cx="325" cy="342" rx="90" ry="8" fill="#000" opacity=".18"/><ellipse cx="530" cy="342" rx="70" ry="7" fill="#000" opacity=".18"/>
+</svg>
